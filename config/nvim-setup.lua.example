@@ -1,0 +1,15 @@
+-- Add to ~/.config/nvim/init.lua AFTER Lazy.nvim finishes modifying runtimepath:
+-- require("lazy").setup(...)
+
+local rexplain_nvim = vim.fn.expand("~/github/rexplain/adapters/nvim")
+if vim.fn.isdirectory(rexplain_nvim) == 1 then
+  vim.opt.runtimepath:append(rexplain_nvim)
+  require("rexplain").setup({
+    command = { vim.fn.expand("~/.local/bin/rexplain") },
+    keymap = "<F13>",
+    -- Optional overrides (or switch interactively via :RexplainModel):
+    -- backend = "mlx",
+    -- model = "mlx-community/Qwen3.5-4B-4bit",
+    -- mlx_runner = "auto",
+  })
+end

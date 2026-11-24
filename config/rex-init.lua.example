@@ -1,0 +1,14 @@
+-- Add to ~/.config/rex/init.lua
+-- Ensure Rex Settings -> Terminal -> Selection -> Copy on Selection is enabled.
+
+local rexplain_root = (os.getenv("HOME") or "") .. "/github/rexplain"
+package.path = package.path .. ";" .. rexplain_root .. "/adapters/rex/?.lua"
+local rexplain = require("rexplain")
+
+-- Optional per-environment overrides (otherwise ~/.config/rexplain/config.json is used,
+-- defaulting to Apple On-device FMF; switch interactively via "Rexplain: Select Model"):
+-- rexplain.setup({
+--   backend = "mlx",
+--   model = "mlx-community/Qwen3.5-4B-4bit",
+--   mlx_runner = "auto", -- "auto" | "mlx_lm" | "mlx_vlm"
+-- })
